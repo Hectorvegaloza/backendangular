@@ -120,26 +120,3 @@ const ControladorUsuarios = {
 
 
 export default ControladorUsuarios;
-
-
-// esto va ser para los ejemplos
-/* {
-  "nombre": "pepita",
-  "apellido": "perez",
-  "correo": "pepita@gmail.com",
-  "contrasenia": "arrozconhuevo",
-  "contraseniaconfirm": "arrozconhuevo",
-  "apodo": "vega",
-  "telefono": "3173375329",
-  "foto": "ff.jpg",
-  "codigopostal": "100023"
-}*/
-/* if (usuarioCreado.nombre === "") throw Error ("Falta el nombre"); */
-/*if (solicitud.body.apellido === "") throw Error ("Falta el apellido");
-if (solicitud.body.correo === "") throw Error ("Falta el correo");
-if (solicitud.body.contrasenia === "") throw Error ("Falta la contraseña");
-if (solicitud.body.contraseniaconfirm === "") throw Error ("Falta la confirmacion de la contraseña");
-if (solicitud.body.apodo === "") throw Error ("Falta el apodo");
-if (solicitud.body.telefono === "") throw Error ("Falta telefono");
-if (solicitud.body.foto === "") throw Error ("Falta la foto");
-if (solicitud.body.codigopostal === "") throw Error ("Falta el codigo postal"); */

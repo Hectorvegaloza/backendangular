@@ -1,0 +1,8 @@
+<form [formGroup]="credentialsForm" (ngSubmit)="handleSubmit()" > <!-- agrupa se debe llamar ese objeto esto es para implementar el objeto de la logica -->
+                                        <!-- ngsubmit es cuando se envian los datos y en el metodo creado que escucha cuando funciona el boton-->
+    <input type="text" placeholder="Usuario" formControlName="username"> <!-- se llama una atributo -->
+    <input type="password" placeholder="password" formControlName="password">
+    <input type="submit" value="Log in">
+</form> 
+
+<!-- formulario de loggeo -->

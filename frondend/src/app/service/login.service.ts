@@ -9,10 +9,14 @@ export class LoginService {
   constructor() {}
   httpClient = inject(HttpClient);
 
+API_URL='http://localhost:3000/inicio-sesion';
+
   login(credential: Credential) {
     return this.httpClient.post(
-      'http://localhost:3000/inicio-sesion',
+      this.API_URL,
       credential
     );
   }
+  validateToken(token:string){
+    return this.httpClient.get(`${this.API_URL}/${token}`)}
 }

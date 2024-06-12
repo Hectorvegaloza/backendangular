@@ -1,5 +1,5 @@
 import bcryptjs from "bcryptjs";
-import {generarToken} from "../ayudas/funciones.js"
+import {verificarToken, generarToken} from "../ayudas/funciones.js"
 import modeloUsuario from "../modelos/modeloUsuario.js";
 
 
@@ -41,6 +41,31 @@ const ControladorInicioSesion = {
           respuesta.json({error: true, mensaje: "ocurrió un error al iniciar sesion"});
         }
         
+},
+
+validarToken: async (solicitud, respuesta) => { /// para validar token del postman
+  try{
+      const token = solicitud.params.token; /* recibe los datos y envia la confirmacion de que el postman lo envio */
+
+      const decodificado = await verificarToken(token);/* obtengo de los params */
+    
+      if (decodificado.id) {
+          respuesta.json({
+          resultado: 'bien',
+          mensaje: 'token valido',
+          datos: decodificado,
+        });
+      }else {
+      respuesta.json({
+        resultado: 'mal',
+        mensaje: 'token no valido',
+        datos: null,
+     })}
+  }catch(error){
+    console.log("error",error);
+    respuesta.json({error: true, mensaje: "ocurrió un error al verificar el TOKEN"});
+  }
+  
 }
 }
 

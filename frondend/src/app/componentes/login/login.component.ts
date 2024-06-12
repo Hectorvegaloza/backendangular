@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject  } from '@angular/core';
 import {
   ReactiveFormsModule,   //// para usar fromularios reactivos en angular
   FormControl,
@@ -6,6 +6,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { Credential } from '../../interfaces/credential';
+import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { LoginService } from '../../service/login.service';
+
+const jwtHelperService = new JwtHelperService();
 
 @Component({
   selector: 'app-login',
@@ -15,11 +20,13 @@ import { Credential } from '../../interfaces/credential';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  credentialsForm = new FormGroup({ //creamos un objeto
-    username: new FormControl('', Validators.required), // estamos activando los validadores y devueve un false si no se cumple
+  router = inject(Router);
+  loginService: LoginService = inject(LoginService);
+
+  credentialsForm = new FormGroup({
+    username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
-
   handleSubmit() {
     console.log("estoy trabajando");
     if (this.credentialsForm.valid) {   /* valida que los datos enviados sean correctos  */
@@ -31,7 +38,13 @@ export class LoginComponent {
           username,
           password,
         };
-        console.log('credencial: ', credential); /* imprime el tipo de dato y el valor */
+        this.loginService.login(credential).subscribe((response: any) => {
+          //console.log('response: ', response);
+          //const decoded = jwtHelperService.decodeToken(response.datos);
+          //console.log('decoded: ', decoded);
+          localStorage.setItem('token', response.datos);
+          this.router.navigateByUrl('/shop');
+        }); /* imprime el tipo de dato y el valor */
       }
     } else {
       console.log('Error: formulario invalido');

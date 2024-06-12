@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import enrutadorUsuarios from "./rutas/rutaUsuario.js";
 import morgan from "morgan";
 import enrutadorInicioSesion from "./rutas/rutaInicioSesion.js";
@@ -6,7 +7,8 @@ import enrutadorInicioSesion from "./rutas/rutaInicioSesion.js";
 /* const express = require("express") --- forma antigua */
 
 const servidor = express();
- 
+
+servidor.use(cors());
 servidor.use(express.json()); // para recibir json de los servidorres
 servidor.use(morgan("dev"));
 servidor.use("/usuarios",enrutadorUsuarios);  // raiz del programa

@@ -1,15 +1,21 @@
+import bcrypt from "bcryptjs";
 import ModeloUsuario from "../modelos/modeloUsuario.js";
 
 const ControladorUsuarios = {
   
     crearUsuario: async (solicitud, respuesta) => {
       try{
+       
+        const {nombre, correo, contrasenia} = solicitud.body; ///estoy sacando esto destructurin
+        const contraseniaProtegida = await bcrypt.hash(contrasenia, 10);
+          const nuevoUsuario = new ModeloUsuario({        ///se va realizar un objeto donde se mande, SI DESEAMOS QUE SE MANDEN MAS DATOS SE DEBEN AGREGAR AQUI
+          nombre: nombre,
+          correo: correo,
+          contrasenia: contraseniaProtegida,
+        });  
 
-        const nuevoUsuario = new ModeloUsuario(solicitud.body);
-
-         console.log("solicitud:", solicitud.body); 
-         const usuarioCreado = await nuevoUsuario.save();
-         console.log(usuarioCreado);
+        const usuarioCreado = await nuevoUsuario.save();
+      
 
         if (usuarioCreado._id){
           respuesta.json({
@@ -17,7 +23,7 @@ const ControladorUsuarios = {
             mensaje: "Usuario Creado!",
             id: usuarioCreado._id
           });
-        }
+        } 
         
       }catch(error){
         console.log("error",error);

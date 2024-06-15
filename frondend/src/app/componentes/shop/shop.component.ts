@@ -1,9 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { LoginService } from '../../service/login.service';
-import { response } from 'express';
 
-const jwtHelperService = new JwtHelperService();
+import { LoginService } from '../../service/login.service';
+
+
 
 @Component({
   selector: 'app-shop',
@@ -12,25 +11,23 @@ const jwtHelperService = new JwtHelperService();
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.css',
 })
+
 export class ShopComponent {
   loginService = inject(LoginService);
-
-
-
   nombre: string = '';
   ngOnInit() {
     const token: any = localStorage.getItem('token');
-    console.log('token: ', token);
+    /* console.log('token: ', token); */
     if (token) {
       
       this.loginService.validateToken(token).subscribe((response:any)=>{
-        console.log("reponse:",response);
+        /* console.log("reponse:",response); */
 
         if (response.resultado === "bien") {
           this.nombre = response.datos.name;
           
         } else {
-          console.log("no existe token");
+          this.loginService.logout();/* para cerrar sesion */
         }
 
 
@@ -38,7 +35,7 @@ export class ShopComponent {
       });
       
     } else {
-      console.log("no existe token");     
+      this.loginService.logout();     
     }
 /*     const decoded = jwtHelperService.decodeToken(token);
     console.log('decoded: ', decoded);

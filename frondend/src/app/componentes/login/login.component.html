@@ -1,8 +1,37 @@
-<form [formGroup]="credentialsForm" (ngSubmit)="handleSubmit()" > <!-- agrupa se debe llamar ese objeto esto es para implementar el objeto de la logica -->
-                                        <!-- ngsubmit es cuando se envian los datos y en el metodo creado que escucha cuando funciona el boton-->
-    <input type="text" placeholder="Usuario" formControlName="username"> <!-- se llama una atributo -->
-    <input type="password" placeholder="password" formControlName="password">
-    <input type="submit" value="Log in">
-</form> 
 
-<!-- formulario de loggeo -->
+<body>
+  
+
+
+<div class="d-lg-flex justify-content-center">
+    <form
+      [formGroup]="credentialsForm"
+      (ngSubmit)="handleSubmit()"
+      class="py-5 col-lg-6"
+    >
+      <div class="mb-3">
+        <label for="inputEmail" class="form-label tangerine-bold">Usuario</label>
+        <input
+          type="email"
+          class="form-control  fondoinput"
+          id="inputEmail"
+          aria-describedby="emailHelp"
+          formControlName="username"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="inputPassword" class="form-label tangerine-bold">Contraseña</label>
+        <input
+          type="password"
+          class="form-control fondoinput"
+          id="inputPassword"
+          formControlName="password"
+        />
+      </div>
+      <button type="submit" class="btn btn-personalizado bg-my-color col-12">
+        Log In
+      </button>
+    </form>
+  </div>
+
+</body>

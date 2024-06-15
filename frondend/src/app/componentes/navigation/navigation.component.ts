@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
+import { LoginService } from "../../service/login.service"
 
 
 @Component({
@@ -11,5 +11,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './navigation.component.css'
 })
 export class NavigationComponent {
-  
+  loginservice = inject(LoginService);
 }

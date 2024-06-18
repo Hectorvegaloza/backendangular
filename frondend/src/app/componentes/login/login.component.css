@@ -6,3 +6,10 @@ body{
     height: 100vh;
     background-image: url('../../../assets/fonfologin.png');
 }
+
+.backe{
+    background-color: bisque;
+    padding: 30px;
+    border-radius: 50px;
+    margin-top: 60 px;
+}

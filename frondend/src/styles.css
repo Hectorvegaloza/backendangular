@@ -44,16 +44,16 @@ a{
   }
   
  .navbar{
-    box-shadow: 0 5px 4px #ffd7aa;   
+    box-shadow: 0 5px 4px #f79f3b;   
     position:relative;
     align-items: center;
   }
 
  
-.navbar.navbar-expand-lg{
+/* .navbar.navbar-expand-lg{
   background-color: #fff7c3;
 }
-
+ */
   .bg-my-color {
     background-color: var(--my-color);
     color:rgb(246, 246, 246);

@@ -17,22 +17,15 @@
 
 p{
     text-align: justify;
-    font-family: georgia;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 a{
-    
     padding: 2px;
     margin-left: 50px;
     margin-right: 50px;
 }
-.fondoinput {
-/*   background-color: rgb(207, 207, 35);
-  border: 1px solid #000000;
-  padding: 0.375rem 0.75rem;  */
-  border-color: #fdf7a2; 
-  box-shadow: 0 0 0 0.2rem rgba(165, 165, 6, 0.684); 
-}
+
 
 
   .tangerine-bold {
@@ -43,11 +36,6 @@ a{
     text-align: center;
   }
   
- .navbar{
-    box-shadow: 0 5px 4px #f79f3b;   
-    position:relative;
-    align-items: center;
-  }
 
  
 /* .navbar.navbar-expand-lg{

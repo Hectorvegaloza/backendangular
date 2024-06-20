@@ -1,0 +1,9 @@
+footer {
+    background-color:#f7c998; /* Color de fondo */
+    color: #013f19; /* Color del texto */
+    border-top: 2px solid #f8f8f8; /* Borde superior */
+    position: relative;
+    bottom: 0px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+  }

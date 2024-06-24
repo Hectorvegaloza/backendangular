@@ -1,18 +1,36 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <label>
-    Nombre:
-    <input type="text" formControlName="nombre">
-  </label>
-  <br>
-  <label>
-    Email:
-    <input type="email" formControlName="correo">
-  </label>
-  <br>
-  <label>
-    Mensaje:
-    <textarea formControlName="mensaje"></textarea>
-  </label>
-  <br>
-  <button type="submit">Enviar</button>
-</form>
+
+<body>
+  
+
+<div class="d-lg-flex justify-content-center ">
+  <form class="py-5 col-lg-6 backe" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="inputEmail" class="form-label tangerine-bold">Nombre:</label>
+        
+        <input    class="form-control  fondoinput"
+        id="inputEmail"
+        aria-describedby="emailHelp" type="text" formControlName="nombre">
+        
+      </div>
+      <div class="mb-3">
+        <label for="inputEmail" class="form-label tangerine-bold">Correo:</label>
+        
+        <input    class="form-control  fondoinput"
+        id="inputEmail"
+        aria-describedby="emailHelp" type="text" formControlName="correo">
+        
+      </div>
+      <div class="mb-3">
+        <label for="inputEmail" class="form-label tangerine-bold">Animate!, dejanos un mensaje:</label>
+        <textarea  class="form-control  fondoinput"
+        id="inputEmail" type="text" formControlName="mensaje"></textarea>
+       
+        
+      </div>
+
+      <button type="submit" class="btn btn-outline-light bg-my-color col-12">
+        Enviar
+      </button>
+    </form>
+  </div>
+</body>

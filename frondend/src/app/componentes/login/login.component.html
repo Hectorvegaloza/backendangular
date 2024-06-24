@@ -1,5 +1,5 @@
 
-<body>
+<!-- <body>
 
 <div class="d-lg-flex justify-content-center ">
     <form
@@ -34,4 +34,26 @@
     </form>
   </div>
 
-</body>
+</body> -->
+
+<body>
+  <h1 id="title"> ¡Inicia Sesión para ver nuestros productos! </h1>
+  
+  <div id="milogin">
+  <form [formGroup]="credentialsForm" (ngSubmit)="handleSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" formControlName="username">
+      <div id="emailHelp" class="form-text">Tu email no será compartido con ningún tercero.</div>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+    </div>
+    <button type="submit" class="btn btn-outline-light bg-my-color col-12" value="Log In">Iniciar Sesión</button>
+  </form>
+  
+  </div><br> <br> <br> <br> <br> <br> <br>
+  
+  </body>

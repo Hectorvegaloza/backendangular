@@ -1,0 +1,19 @@
+body{
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    overflow-x: hidden; 
+    height: 100vh;
+    background-image: url('../../../assets/Background/monsters.png');
+}
+
+.backe{
+    background-color: #f08801a2;
+    padding: 30px;
+    border-radius: 50px;
+    margin-top: 60 px;
+}
+
+.d-lg-flex{
+    margin: 100px;
+}

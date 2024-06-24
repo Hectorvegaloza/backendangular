@@ -9,7 +9,7 @@
   
 
 :root {
-    --my-color: #606c38;
+    --my-color: #5e2a00;
     --personalizado: rgb(255, 254, 196);
   }
 
@@ -26,6 +26,11 @@ a{
     margin-right: 50px;
 }
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 15px;
+  }
+}
 
 
   .tangerine-bold {

@@ -1,10 +1,14 @@
 .nav-link{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
+    position: relative;
+    z-index: 1;
 }
 
 #NavBarEdit{
     background-color:#f7c998;
     padding: 1%;
     font-size: 130%;
+    position: relative;
+    z-index: 2;
 }

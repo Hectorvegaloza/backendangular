@@ -19,8 +19,10 @@ API_URL='http://localhost:3000/inicio-sesion';
     return this.httpClient.post(
       this.API_URL,
       credential
+      
     );
   }
+
   validateToken(token:string){
     return this.httpClient.get(`${this.API_URL}/${token}`)}
 

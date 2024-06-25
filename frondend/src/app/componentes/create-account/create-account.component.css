@@ -1,10 +1,9 @@
 body{
-    background-image: url('../../../assets/Other/Bild4.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50%;
-    filter: saturate(60%);
+  background-image: url('../../../assets/Background/monsters.png'); 
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 div#milogin {
     background: #bc6c25;

@@ -1,100 +1,22 @@
 <body>
-    <h1 class="titleShop"> Nuestros Libros </h1>
-    
-    <div class="container">
-        <p class="tangerine-bold">Hola, {{ nombre }}!</p>
-    <div class="galeria-imagenes">
-        <div class="imagen-descripcion">
-          <img  src="../../../assets/Books/book1.jpg" alt="El Reto">
-          <p>El Reto</p>
-          <p>Autores: Pilar Burgos & David Liston</p>
-        </div>
-        <div class="imagen-descripcion">
-          <img src="../../../assets/Books/book2.jpg" alt="The Princess and the Goblin">
-          <p>The Princess and the Goblin</p>
-          <p>Autor: George MacDonald</p>
-        </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book3.jpg" alt="The Unknown Game">
-            <p>The Unknown Game</p>
-            <p>Autor: TwoHairs</p>
-          </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book4.jpg" alt="Lili's Lost Purr">
-            <p>Lili's Lost Purr</p>
-            <p>Autor: India Redman</p>
-        </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book5.jpg" alt="Eli & Gaston">
-            <p>Eli & Gaston</p>
-            <p>Autor: Ludovic Villain</p>
-        </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book6.jpg" alt="Adventure Time">
-            <p>Adventure Time</p>
-            <p>Autor: Unknown</p>
-        </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book7.jpg" alt="Wait where the Shooting Star Falls">
-            <p>Wait where the Shooting Star Falls</p>
-            <p>Autor: Unknown</p>
-        </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book8.jpg" alt="Charlotte's Web">
-            <p>Charlotte's Web</p>
-            <p>Autor: E.B White</p>
-        </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book9.jpg" alt="Magalina">
-            <p>Magalina</p>
-            <p>Autor: Sylvia Douye</p>
-        </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book10.jpg" alt="Xiaobijianer">
-            <p>Xiaobijianer</p>
-            <p>Autor: Unknown</p>
-        </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book11.jpg" alt="The Jungle">
-            <p>The Jungle</p>
-            <p>Autor: Rudyard Kipling</p>
-        </div>
-        <div class="imagen-descripcion"> 
-            <img src="../../../assets/Books/book12.jpg" alt="Onibi">
-            <p>Onibi</p>
-            <p>Autor: Atelier Sento</p>
-        </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book13.jpg" alt="The Secret Ingredient">
-            <p>The Secret Ingredient</p>
-            <p>Autor: Unknown</p>
-        </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book14.jpg" alt="Des Lumieres dans la Nuit">
-            <p>Des Lumieres dans la Nuit</p>
-            <p>Autor: Lorena Alvarez</p>
-        </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book15.jpg" alt="Penny and the Mist Monsters">
-            <p>Penny and the Mist Monsters</p>
-            <p>Autor: Unknown>
-        </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book16.jpg" alt="Brume">
-            <p>Brume</p>
-            <p>Autor: Jérome Pelissier</p>
-        </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book17.jpg" alt="Magalina">
-            <p>Magalina</p>
-            <p>Autor: Szlvia Douye</p>
-        </div>
-        <div class="imagen-descripcion">
-            <img src="../../../assets/Books/book18.jpg" alt="Magalina">
-            <p>Magalina</p>
-            <p>Autor: Szlvia Douye</p>
-        </div>
-    
+<h1 class="titleShop"> Nuestros Libros </h1>
+
+<div class="container">
+  <div class="card-container">
+    <div class="card float-left overflow-hidden" *ngFor="let book of books | paginate: { itemsPerPage: 9, currentPage: p }">
+      <img src="{{ book.imagePath }}">
+      <div class="card-content col-12">
+        <h3>{{ book.title }}</h3>
+        <p> Autor: {{ book.authors?.join(', ') }}</p> 
+        <p> Precio: {{ book.price }} COP</p>
+        <a class="btn">Comprar</a>
+      </div>
     </div>
-    </div>
-    </body>
+  </div>
+</div> <br>
+
+<div class="page-control">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div> <br>
+
+</body>

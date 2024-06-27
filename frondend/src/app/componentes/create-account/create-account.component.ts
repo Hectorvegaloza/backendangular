@@ -27,11 +27,11 @@ export class CreateAccountComponent {
 
   constructor(private userService: UserService, private fb: FormBuilder) {
     this.registrationForm = this.fb.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      correo: ['', [Validators.required, Validators.email]],
+      contrasenia: ['', Validators.required],
+      contraseniaconfirm: ['', Validators.required],
     });
   }
 
@@ -39,9 +39,9 @@ export class CreateAccountComponent {
     if (this.registrationForm?.valid) {
       const formData = this.registrationForm.value;
   
-      if (this.registrationForm?.get('name')?.invalid) {
+      if (this.registrationForm?.get('nombre')?.invalid) {
         this.toastrservice.error('El nombre es requerido y debe tener al menos 4 caracteres.');
-      } else if (this.registrationForm?.get('password')?.invalid) {
+      } else if (this.registrationForm?.get('contrasenia')?.invalid) {
         this.toastrservice.error('La contraseña debe cumplir con los requisitos de seguridad.');
       } else {
         this.userService.createUser(formData)

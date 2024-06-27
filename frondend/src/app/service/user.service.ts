@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 interface UserData {
- name: string;
- email: string;
- password: string;
+ nombre: string;
+ correo: string;
+ contrasenia: string;
 }
 
 @Injectable({
@@ -14,7 +14,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   createUser(userData: UserData) {
-    const apiUrl = 'http://localhost:3002/usuarios'; 
+    const apiUrl = 'http://localhost:3000/usuarios'; 
     return this.http.post<any>(apiUrl, userData);
   }
 }

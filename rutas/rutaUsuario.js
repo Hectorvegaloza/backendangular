@@ -4,7 +4,7 @@ import ControladorUsuarios from "../controladores/controladorUsuarios.js";
 
 const enrutadorUsuarios = Router();
 
-enrutadorUsuarios.post('/:id', ControladorUsuarios.crearUsuario);
+enrutadorUsuarios.post('/', ControladorUsuarios.crearUsuario);
 enrutadorUsuarios.get('/:id', ControladorUsuarios.leerUsuario);
 enrutadorUsuarios.get('/', ControladorUsuarios.leerUsuarios);
 enrutadorUsuarios.put('/:id', ControladorUsuarios.actualizarUsuario);

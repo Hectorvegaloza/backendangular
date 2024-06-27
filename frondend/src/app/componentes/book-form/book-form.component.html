@@ -1,0 +1,100 @@
+<body>
+    <p class="title"> ¡Crea tu libro para que puedas agregarlo al sitio web!</p>
+    
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button class="btn btn-dark" type="button" id="Formbutton" (click)="handleClickViewBooks()">Ver mis libros creados</button>
+    </div><br>
+    
+    <div>
+        <form (ngSubmit)="handleSubmit()" id="bookForm" class="py-5 col-lg-6">
+          <div class="mb-3">
+            <label for="inputTitle" class="form-label">Nombre del Libro</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputTitle"
+              aria-describedby="nameHelp"
+              name="Title"
+              [(ngModel)]="Title"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="inputAuthor" class="form-label">Autor</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputAuthor"
+              aria-describedby="AuthorHelp"
+              name="Author"
+              [(ngModel)]="Author"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="inputPrice" class="form-label">Precio</label>
+            <input
+              type="number"
+              class="form-control"
+              id="inputPrice"
+              aria-describedby="PriceHelp"
+              name="Price"
+              [(ngModel)]="Price"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="inputCurrency" class="form-label">Tipo de Moneda</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputCurrency"
+              aria-describedby="currencyHelp"
+              name="Currency"
+              [(ngModel)]="Currency"
+            />
+          </div>
+      
+          <div class="mb-3">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="inputAvailable"
+                aria-describedby="availableHelp"
+                name="Available"
+                [(ngModel)]="Available"
+              />
+              <label class="form-check-label" for="inputAvailable">¿Disponible?</label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="inputItems" class="form-label">Cantidad</label>
+            <input
+              type="number"
+              class="form-control"
+              id="inputItems"
+              aria-describedby="ItemsHelp"
+              name="Items"
+              [(ngModel)]="Items"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="inputPicture" class="form-label">Imagen</label>
+            <input
+              type="file"
+              class="form-control"
+              id="inputPicture"
+              aria-describedby="PictureHelp"
+              (change)="inputFile($event)"
+            />
+          </div>
+          <button type="submit" class="btn btn-dark bg-dark col-12">
+            Crear libro
+          </button>
+        </form>
+      </div> <br>
+      
+      <div class="container">
+        <button class="btn" type="button" id="Formbutton1" (click)="handleClickViewBooks1()">Cerrar Sesión</button>
+      </div><br> <br>
+    
+    </body>

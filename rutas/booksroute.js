@@ -1,5 +1,5 @@
 import { Router } from "express";
-import BookDriver from "../controlador/bookDriver.js";
+import BookDriver from "../controladores/bookDriver.js";
 
 const booksRoute = Router();
 

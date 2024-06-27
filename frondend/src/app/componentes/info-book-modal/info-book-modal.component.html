@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h4 class="modal-title">Detalles del Libro</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Título:</strong> {{ book?.Title }}</p>
+    <p><strong>Autor:</strong> {{ book?.Author }}</p>
+    <p><strong>Precio:</strong> {{ book?.Price }} {{ book?.Currency }}</p>
+    <p><strong>¿Disponible?:</strong> {{ book?.Available ? 'Sí' : 'No' }}</p>
+    <p><strong>Unidades Disponibles:</strong> {{ book?.Items }}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+  </div>
+  

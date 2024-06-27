@@ -1,0 +1,68 @@
+
+  .title {
+    padding: 1%;
+    text-align: center;
+    font-family: 'Tangerine', sans-serif;
+    font-size: 500%;
+    font-weight: 600;
+    color: #110402;
+}
+
+#intro{
+    text-align: center;
+  }
+
+body {
+    background-color: #f7c9a1;
+}
+
+.card-group{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.btnInfor{
+  background-color: #bed083;
+  padding-left: 5%;
+}
+
+.btnUpdt{
+  background-color: #f3a20e;
+}
+
+.btnDlt{
+  background-color: #d95106;
+}
+
+.btn-group {
+  display: flex; 
+  gap: 5%; 
+  justify-content: center;
+  padding-bottom: 1%;
+}
+
+.btnInfor, .btnUpdt, .btnDlt {
+  border-radius: 10%;
+  font-weight: 400;
+  font-size: 110%;
+  border-style: groove;
+  padding: 1.3%;
+  width: 100%;
+}
+
+.card-title{
+  text-align: center;
+  font-size: 150%;
+}
+
+#pictures{
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  padding-top: 4%;
+}
+
+.card {
+  margin-bottom: 30px; /* Add space at the bottom of each card */
+}

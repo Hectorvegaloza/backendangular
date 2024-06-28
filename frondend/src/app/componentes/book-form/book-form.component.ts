@@ -53,7 +53,7 @@ export class BookFormComponent {
           next: (response: any) => {
             console.log("respuesta: ", response)
             if (response.resultado == "successful") {
-              this.toastrService.success(response.message);
+              this.toastrService.success(response.message ||'¡Libro creado Exitosamente!' );
             } else {
               this.toastrService.error(response.message || 'An error occurred while creating the book');
             }

@@ -1,22 +1,22 @@
 <body>
-<h1 class="titleShop"> Nuestros Libros </h1>
-
-<div class="container">
-  <div class="card-container">
-    <div class="card float-left overflow-hidden" *ngFor="let book of books | paginate: { itemsPerPage: 9, currentPage: p }">
-      <img src="{{ book.imagePath }}">
-      <div class="card-content col-12">
-        <h3>{{ book.title }}</h3>
-        <p> Autor: {{ book.authors?.join(', ') }}</p> 
-        <p> Precio: {{ book.price }} COP</p>
-        <a class="btn">Comprar</a>
+  <h1 class="titleShop"> Nuestros Libros </h1>
+  
+  <div class="container">
+    <div class="card-container">
+      <div class="card float-left overflow-hidden" *ngFor="let book of books | paginate: { itemsPerPage: 9, currentPage: p }">
+        <img src="http://localhost:3000/pictures/{{ book.Picture }}">
+        <div class="card-content col-12">
+          <h3>{{ book.Title }}</h3>
+          <p> Autor: {{ book.Author }}</p> 
+          <p> Precio: {{ book.Price }} COP</p>
+          <a class="btn" (click)="redirectToPayment()">Comprar</a>
+        </div>
       </div>
     </div>
-  </div>
-</div> <br>
-
-<div class="page-control">
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
-</div> <br>
-
-</body>
+  </div> <br>
+  
+  <div class="page-control">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div> <br>
+  
+  </body>

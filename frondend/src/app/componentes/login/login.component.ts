@@ -38,12 +38,18 @@ export class LoginComponent {
           username,
           password,
         };
+        
         this.loginService.login(credential).subscribe((response: any) => {
           //console.log('response: ', response);
           //const decoded = jwtHelperService.decodeToken(response.datos);
           //console.log('decoded: ', decoded);
           localStorage.setItem('token', response.datos);
-          this.router.navigateByUrl('/shop');
+          if(username==="administrador@gmail.com"&& password==="Clave123@" ){
+
+          this.router.navigateByUrl('/book-form');}
+          else{
+            this.router.navigateByUrl('/shop');
+          }
         }); /* imprime el tipo de dato y el valor */
       }
     } else {

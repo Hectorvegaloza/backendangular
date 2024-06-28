@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { LoginService } from '../../service/login.service';
 import { AdminService } from '../../service/admin.service';
@@ -7,16 +7,22 @@ import { EditBookModalComponent } from '../edit-book-modal/edit-book-modal.compo
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { InfoBookModalComponent } from '../info-book-modal/info-book-modal.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-adminn',
-  standalone: true,
-  imports: [FormsModule, CommonModule],
-  templateUrl: './adminn.component.html',
-  styleUrl: './adminn.component.css'
-})
-export class AdminnComponent implements OnInit{
-  name: string = ''; // To greet the user
+    selector: 'app-admin',
+    standalone: true,
+    imports: [FormsModule, CommonModule, NgxPaginationModule],
+    templateUrl: './adminn.component.html',
+    styleUrls: ['./adminn.component.css']
+  })
+
+export class AdminnComponent implements OnInit {
+
+  router: Router = inject(Router); 
+
+  name: string = ''; 
 
   Title: string = '';
   Author: string = '';
@@ -27,6 +33,8 @@ export class AdminnComponent implements OnInit{
   Picture: File | null = null;
 
   books: any[] = [];
+  p: number = 1;
+  nombre: string = '';
 
   constructor(
     private toastrService: ToastrService,
@@ -34,6 +42,10 @@ export class AdminnComponent implements OnInit{
     private adminService: AdminService,
     private modalService: NgbModal
   ) {}
+
+  handleClickCreateBooks() {
+    this.router.navigate(['/book-form']); 
+  }
 
   ngOnInit() {
     const token: any = localStorage.getItem('token');
@@ -68,19 +80,19 @@ export class AdminnComponent implements OnInit{
         .subscribe({
           next: (response: any) => {
             if (response.success) {
-              this.toastrService.success(response.message);
+              this.toastrService.success(response.message || 'Libro creado exitosamente');
               this.fetchBooks();
             } else {
-              this.toastrService.error(response.message || 'An error occurred while creating the book');
+              this.toastrService.error(response.message || 'Hubo un error creando el libro');
             }
           },
           error: (error: any) => {
             console.error('Error occurred while creating the book:', error);
-            this.toastrService.error('An error occurred while creating the book');
+            this.toastrService.error('Hubo un error creando el libro');
           }
         });
     } else {
-      this.toastrService.warning('All fields are required');
+      this.toastrService.warning('Todos los campos son requeridos');
     }
   }
 
@@ -90,6 +102,7 @@ export class AdminnComponent implements OnInit{
         console.log("response: ", response)
         if (response.resultado === 'successful' && response.datos) {
           this.books = response.datos;
+          // this.setPage(1); 
         } else {
           this.toastrService.error('An error occurred while fetching books');
           console.error('Error in response:', response);
@@ -103,8 +116,8 @@ export class AdminnComponent implements OnInit{
   }
 
   openInfoModal(book: any) {
-    const modalRef = this.modalService.open(InfoBookModalComponent, { size: 'lg' }); // 'lg' for large size, adjust as needed
-    modalRef.componentInstance.book = book; // Pass the selected book to the modal
+    const modalRef = this.modalService.open(InfoBookModalComponent, { size: 'lg' }); 
+    modalRef.componentInstance.book = book; 
   }
 
   openEditModal(book: any) {

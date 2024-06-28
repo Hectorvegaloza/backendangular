@@ -26,8 +26,7 @@ export class EditBookModalComponent {
     books: any[] = [];
   
     constructor(public activeModal: NgbActiveModal,
-                private adminService: AdminService) 
-                {}
+                private adminService: AdminService) {}
   
     closeModal() {
       this.activeModal.close();

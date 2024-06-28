@@ -3,7 +3,7 @@ import {
   ReactiveFormsModule,
   FormControl,
   FormGroup,
-  ValidatorFn,
+  Validators,
 } from '@angular/forms';
 import { ContactenosService } from '../../service/contactenos.service';
 
@@ -27,9 +27,9 @@ export class ContactenosComponent {
 
   constructor() {
     this.form = new FormGroup({
-      nombre: new FormControl(''),
-      correo: new FormControl(''),
-      mensaje: new FormControl(''),
+      nombre: new FormControl('', Validators.required),
+      correo: new FormControl('', Validators.required),
+      mensaje: new FormControl('', Validators.required),
     });
   }
 

@@ -1,14 +1,36 @@
-/* not-found.component.css */
 .container {
-    margin-top: 100px;
-  }
-  
-  .display-1 {
-    font-size: 6rem;
-    margin-bottom: 30px;
-  }
-  
-  .lead {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #333;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: normal;
+  color: #666;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #999;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+}

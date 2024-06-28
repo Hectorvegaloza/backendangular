@@ -1,33 +1,42 @@
 <body>
     <div class="container">
-    
       <h1 class="title"> Libros creados </h1>
-    <div *ngIf="books.length > 0; else noBooks">
-      <div class="row d-flex justify-content-center">
-        <div *ngFor="let book of books; trackBy: trackByIndex" class="col-md-4">
-          <div class="card" style="width: 100%;">
-            <div id="pictures">
-            <img
-              src="http://localhost:3000/pictures/{{ book.Picture }}"
-              class="card-img-top"
-              alt="imagen de libro {{ book.Title }}"
-              style="width: 300px; height: 300px;"
-            />
-          </div>
-            <div class="card-body">
-              <h5 class="card-title">{{ book.Title }}</h5> <br>
-              <div class="btn-group d-flex" role="group" aria-label="Basic mixed styles example">
-                <button type="button" class="btnInfor" (click)="openInfoModal(book)">Detalles</button>
-                <button type="button" class="btnUpdt" (click)="openEditModal(book)">Editar</button>
-                <button type="button" class="btnDlt" (click)="handleDelete(book._id)">Eliminar</button>
+      <div class="d-grid gap-2 col-6 mx-auto">
+      <button class="btn btn-dark" type="button" id="Formbutton" (click)="handleClickCreateBooks()">Crear más libros</button>
+      </div> <br>
+      <div *ngIf="books.length > 0; else noBooks">
+        <div class="row d-flex justify-content-center">
+          <div *ngFor="let book of books | paginate: { itemsPerPage: 9, currentPage: p }; trackBy: trackByIndex" class="col-md-4" pagination-template>
+            <div class="card" style="width: 100%;">
+              <div id="pictures">
+                <img
+                  src="http://localhost:3000/pictures/{{ book.Picture }}"
+                  class="card-img-top"
+                  alt="imagen de libro {{ book.Title }}"
+                  style="width: 300px; height: 300px;"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{ book.Title }}</h5>
+                <br />
+                <div class="btn-group d-flex" role="group" aria-label="Basic mixed styles example">
+                  <button type="button" class="btnInfor" (click)="openInfoModal(book)">Detalles</button>
+                  <button type="button" class="btnUpdt" (click)="openEditModal(book)">Editar</button>
+                  <button type="button" class="btnDlt" (click)="handleDelete(book._id)">Eliminar</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
-    <ng-template #noBooks>
-      <p>No existen libros para mostrar</p>
-    </ng-template>
-    </body>
+  
+      <ng-template #noBooks>
+        <p>No existen libros para mostrar</p>
+      </ng-template>
+      
+      <div class="page-control">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    
+  </body>

@@ -13,7 +13,7 @@ export class LoginService {
   httpClient = inject(HttpClient);
   router = inject(Router);
   
-API_URL='http://localhost:3000/inicio-sesion';
+API_URL='http://34.224.86.89:3000/inicio-sesion';
 
   login(credential: Credential) {
     return this.httpClient.post(

@@ -10,7 +10,7 @@ export class AdminService {
   constructor() { }
   httpClient = inject(HttpClient);
 
-  API_URL = 'http://34.224.86.89:3000/books';
+  API_URL = 'http://34.224.86.89:3000/shop';
 
   createBook(
     Title: string, 

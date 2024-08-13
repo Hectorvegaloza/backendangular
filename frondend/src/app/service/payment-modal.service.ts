@@ -16,6 +16,6 @@ export class PaymentModalService {
   constructor(private http: HttpClient) { }
 
   createPayment(paymentData: PaymentData) {
-    return this.http.post<any>('http://localhost:3000/payments', paymentData);
+    return this.http.post<any>('http://54.226.241.14:3000/payments', paymentData);
   }
 }

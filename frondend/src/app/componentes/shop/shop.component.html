@@ -4,7 +4,7 @@
   <div class="container">
     <div class="card-container">
       <div class="card float-left overflow-hidden" *ngFor="let book of books | paginate: { itemsPerPage: 9, currentPage: p }">
-        <img src="http://localhost:3000/pictures/{{ book.Picture }}">
+        <img src="http://54.226.241.14:3000/pictures/{{ book.Picture }}">
         <div class="card-content col-12">
           <h3>{{ book.Title }}</h3>
           <p> Autor: {{ book.Author }}</p> 

@@ -14,7 +14,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   createUser(userData: UserData) {
-    const apiUrl = 'http://localhost:3000/usuarios'; 
+    const apiUrl = 'http://54.226.241.14:3000/usuarios'; 
     return this.http.post<any>(apiUrl, userData);
   }
 }

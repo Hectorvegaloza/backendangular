@@ -1,1 +1,30 @@
-<p>carritodecompras works!</p>
+<br>
+<br>
+<div class="cart-container">
+    <h2>Tu Carrito</h2>
+    <ul class="cart-items">
+      <li class="cart-item">
+        <div class="cart-item-container flex justify-between bg-gray-200 rounded-md p-2">
+            @for (item of productsNGRX; track item._id) {
+            <div class="item-details">
+            
+            <h3 class="item-title">
+               
+              <span class="remove-item cursor-pointer" (click)="deleteProduct(item._id, item.Price)">❌</span>
+              {{ item.Title }}
+            </h3>
+            <p class="item-price text-gray-600">{{ item.Price }}</p>
+            
+          </div>}
+          </div>
+      </li>
+    </ul>
+    <h2>Total: {{ totalNGRX }}</h2>
+  </div>
+  <div
+class="container">
+  <button type="button" routerLink="/payment" class="pay-button">Paga aquí</button>
+</div>
+  <br>
+
+  <br>

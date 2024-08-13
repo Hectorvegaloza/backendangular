@@ -62,5 +62,9 @@
    
     color: rgb(18, 16, 16);
     padding: 2px;
+    @media (max-width: 768px) {
+      left: 5%; /* Ajusta este valor para que quede encima del carrito */
+      /* Puedes ajustar más propiedades aquí, como el margen superior o inferior, si es necesario */
+    }
   }
 

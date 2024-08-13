@@ -6,9 +6,9 @@ export const addProduct = createAction(
     props <{product: productmodel}>()
 )
 
-export const deleteProduct = createAction(
+export const removeProduct = createAction(
     "[cartcomponent] cerra product",
-    props <{ProductIndex: number}>()
+    props <{ProductId: String ,Price:number}>()
 )
 
 

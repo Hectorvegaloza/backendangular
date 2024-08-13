@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import {addProduct,deleteProduct,emptyCart } from './cart.accions';
+import {addProduct,removeProduct,emptyCart } from './cart.accions';
 import { productmodel } from '../interfaces/productmodel';
 
 
@@ -21,10 +21,11 @@ export const carritoReducer = createReducer(
     return{products: [...state.products, product],
     grandTotal: state.grandTotal + product.Price}
   }),
-/*   on(deleteProduct, (state, { ProductIndex, Price }) => ({
-    products: state.products.filter((product, index) => index !== ProductIndex),
+    on(removeProduct, (state, { ProductId, Price }) => ({
+    products: state.products.filter(Product => Product._id !== ProductId),
     grandTotal: state.grandTotal - Price
-  })), */
+  })),
+
   on (emptyCart,(state)=>({
     products: [],
     grandTotal:0

@@ -1,11 +1,13 @@
 
 <body>
   <br><br>
+  <h1 class="title">Animate!, dejanos un mensaje:</h1>
   <br><br>
-<div class="d-lg-flex justify-content-center" >
+ 
+<div class="cuerpo d-lg-flex justify-content-center" >
   <form class="py-5 col-lg-6 backe" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="mb-3">
-        <label for="inputEmail" class="form-label tangerine-bold">Nombre:</label>
+        <label for="inputEmail" class="form-label">Nombre:</label>
         
         <input    class="form-control  fondoinput"
         id="inputEmail"
@@ -13,7 +15,7 @@
         
       </div>
       <div class="mb-3">
-        <label for="inputEmail" class="form-label tangerine-bold">Correo:</label>
+        <label for="inputEmail" class="form-label ">Correo:</label>
         
         <input    class="form-control  fondoinput"
         id="inputEmail"
@@ -21,7 +23,7 @@
         
       </div>
       <div class="mb-3">
-        <label for="inputEmail" class="form-label tangerine-bold">Animate!, dejanos un mensaje:</label>
+        <label for="inputEmail" class="form-label">¿Qué nos quieres decir?:</label>
         <textarea  class="form-control  fondoinput"
         id="inputEmail" type="text" formControlName="mensaje"></textarea>
        
@@ -33,4 +35,5 @@
       </button>
     </form>
   </div>
+  <br><br><br>
 </body>

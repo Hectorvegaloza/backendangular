@@ -1,29 +1,30 @@
 body{
-  background-image: url('../../../assets/Background/monsters.png'); 
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: rgb(253, 231, 199);
 }
 
 
 div#milogin {
-    background: #bc6c25;
+    background:  #b49e79dc;
     width: 363px;
     margin-left: calc(50% - 180px);
     padding: 15px;
     border-radius: 15px;
     margin-top: 20px;
-    color: white;
+    color: rgb(22, 19, 19);
     justify-content: center;
     margin-bottom: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: "Madimi One", sans-serif;
     font-style: italic;
   }
 
   .title {
+    font-family: "Rubik Doodle Shadow", system-ui;
+    font-weight: 600;
+    font-size: 32px;
+    font-style: normal;
     padding: 1%;
     text-align: center;
-    font-family: 'Tangerine', sans-serif;
-    font-size: 500%;
-    font-weight: 600;
-    color: #110402;
+    position:relative;
+    z-index: 1;       
   }
+  

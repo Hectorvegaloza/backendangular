@@ -16,7 +16,7 @@ export class ContactenosService {
   constructor(private http: HttpClient) {}
   httpClient = inject(HttpClient);
 
-  Api='http://34.224.86.89:3000/contactenos';
+  Api='http://localhost:3000/contactenos';
 
   creandocontacto(userdata: UserData) {
     console.log("enviado",userdata);

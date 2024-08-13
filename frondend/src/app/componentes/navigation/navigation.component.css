@@ -1,14 +1,40 @@
 .nav-link{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-style: italic;
+    font-family:"Righteous", sans-serif;
     position: relative;
     z-index: 1;
+
 }
 
 #NavBarEdit{
-    background-color:#f7c998;
-    padding: 1%;
-    font-size: 130%;
+    background-color:#333;
+  /*   padding: 1%; */
+    font-size: 100%;
     position: relative;
     z-index: 2;
 }
+/* Personaliza los colores y fuentes */
+
+
+.navbar-brand img {
+  margin-right: 10px;
+}
+
+.nav-link {
+  color: white;
+}
+
+/* .custom-toggler {
+    color: white;
+  } */
+
+/* .bg-white {
+    background-color: rgba(255, 255, 255, 0.545);
+    border-color:white ;
+  } */
+  .navbar-toggler:focus {
+    color: rgb(225, 146, 9);
+  }
+  .navbar-toggler.bg-gradient {
+    background-color: rgb(163, 111, 48);
+  }
+  

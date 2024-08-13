@@ -1,16 +1,22 @@
 body{
-    background-size: cover; 
-  /*   background-position: center;  */
-    background-repeat: no-repeat; 
-    overflow-x: hidden; 
-    height: 100vh;
-    background-image: url('../../../assets/Background/monsters.png');
+background-color:  rgb(253, 231, 199);
+}
+.title {
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 600;
+  font-size: 32px;
+  font-style: normal;
+  padding: 1%;
+  text-align: center;
+  position:relative;
+  z-index: 1;       
 }
 
 
 .backe{
-    background-color: #fda738a2;
+    background-color:  #b49e79dc;
     padding: 30px;
     border-radius: 50px;
     margin-top: 60 px;
+    font-family: "Madimi One", sans-serif;
 }

@@ -3,7 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AdminService } from '../../service/admin.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-book-modal',
@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './edit-book-modal.component.css'
 })
 export class EditBookModalComponent {
+  
     @Input() book: any;
 
     Title: string = '';
@@ -26,10 +27,11 @@ export class EditBookModalComponent {
     books: any[] = [];
   
     constructor(public activeModal: NgbActiveModal,
-                private adminService: AdminService) {}
+                private adminService: AdminService,) {}
   
     closeModal() {
       this.activeModal.close();
+      
     }
   
     saveChanges() {

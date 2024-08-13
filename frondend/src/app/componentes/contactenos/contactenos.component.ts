@@ -40,20 +40,20 @@ export class ContactenosComponent {
       try {
         this.contactenosService.creandocontacto(formData).subscribe(
           (response) => {
-            console.log('Data saved successfully!', response);
+            console.log('¡Datos guardados exitosamente!', response);
             // Handle successful response (e.g., show a success message to the user)
           },
           (error) => {
-            console.error('Error saving data:', error);
+            console.error('Error al guardar datos:', error);
             // Handle errors (e.g., display an error message to the user)
           }
         );
       } catch (error) {
-        console.error('Unexpected error:', error);
+        console.error('Error inesperado:', error);
         // Handle unexpected errors
       }
     } else {
-      console.log('Form is invalid');
+      console.log('El formulario no es válido');
     }
   }
 }

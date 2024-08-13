@@ -36,14 +36,36 @@ export class CreateAccountComponent {
   }
 
   onSubmit() {
+    const formData = this.registrationForm.value;
     if (this.registrationForm?.valid) {
+        this.userService.createUser(formData)
+          .subscribe((response) => {
+            if (response.resultado === 'bien') {
+              console.log('User created successfully:', response.datos);
+              this.registrationSuccess = true;
+              this.toastrservice.success(
+                '¡Usuario creado exitosamente!'
+              );
+              this.privateRouter.navigate(['/login']);
+            } else {
+              console.error('Error creating user:', response.mensaje);
+              console.log('error: ', Error);
+              this.toastrservice.error(
+              'Hubo un error al crear el usuario'
+            );}
+          });
+    } else {
+      // Mostrar una alerta general indicando que el formulario no es válido
+      this.toastrservice.error('Por favor, completa todos los campos correctamente.');
+    }
+
+
+  }}
+    
+   /*  if (this.registrationForm?.valid) {
       const formData = this.registrationForm.value;
   
-      if (this.registrationForm?.get('nombre')?.invalid) {
-        this.toastrservice.error('El nombre es requerido y debe tener al menos 4 caracteres.');
-      } else if (this.registrationForm?.get('contrasenia')?.invalid) {
-        this.toastrservice.error('La contraseña debe cumplir con los requisitos de seguridad.');
-      } else {
+      else {
         this.userService.createUser(formData)
           .subscribe((response) => {
             if (response.resultado === 'bien') {
@@ -63,6 +85,6 @@ export class CreateAccountComponent {
       }
     }
     
-  } 
-}
+  }  
+}*/
 

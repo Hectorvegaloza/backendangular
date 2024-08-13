@@ -20,7 +20,7 @@ const BookDriver = {
                 if (error) {
                     return respuesta.json({
                         resultado: 'failed',
-                        mensaje: 'something went wrong',
+                        mensaje: 'Algo salió mal',
                         datos: null,
                     });
                 }
@@ -28,7 +28,7 @@ const BookDriver = {
                 if (!solicitud.file) {
                     return respuesta.json({
                         resultado: 'failed',
-                        mensaje: 'File not provided',
+                        mensaje: 'Archivo no proporcionado',
                         datos: null,
                     });
                 }
@@ -47,14 +47,14 @@ const BookDriver = {
                     const bookCreated = await newBook.save();
                     return respuesta.json({
                         resultado: 'successful',
-                        mensaje: 'book created',
+                        mensaje: 'Libro creado',
                         datos: bookCreated,
                     });
                 } catch (saveError) {
                     console.error('Error saving book:', saveError);
                     return respuesta.json({
                         resultado: 'failed',
-                        mensaje: 'Error saving book',
+                        mensaje: 'Error al guardar el libro',
                         datos: saveError,
                     });
                 }
@@ -63,7 +63,7 @@ const BookDriver = {
             console.error('Error in createBook:', error);
             return respuesta.json({
                 resultado: 'failed',
-                mensaje: 'something went wrong',
+                mensaje: 'Algo salió mal',
                 datos: error,
             });
         }
@@ -74,14 +74,14 @@ const BookDriver = {
                 if (bookFound.id) {
                     respuesta.json({
                         resultado: "successful",
-                        mensaje: "book found",
+                        mensaje: "libro encontrado",
                         datos: bookFound,
                     });
                 }
             } catch (error) {
                 respuesta.json({
                     resultado: "failed",
-                    mensaje: "something went wrong",
+                    mensaje: "Algo salió mal",
                     datos: error,
                 });
         }
@@ -93,13 +93,13 @@ const BookDriver = {
             console.log("books found:", listBooks)
             respuesta.json({
                 resultado: "successful",
-                mensaje: "Books found",
+                mensaje: "libro encontrado",
                 datos: listBooks
             });
             } catch (error) {
             respuesta.json({
                 resultado: "failed",
-                mensaje: "something went wrong",
+                mensaje: "Algo salió mal",
                 datos: error
             });
             }
@@ -113,14 +113,14 @@ const BookDriver = {
                 if(bookUpdated._id) {
                     respuesta.json({
                         resultado: 'successful',
-                        mensaje: 'Book updated',
+                        mensaje: 'Libro actualizado',
                         datos: bookUpdated
                     });
                 }
             }catch (error) {
                 respuesta.json({
                     resultado: "failed",
-                    mensaje: 'something went wrong',
+                    mensaje: 'Algo salió mal',
                     datos: error,
                 });
             }
@@ -132,14 +132,14 @@ const BookDriver = {
                 await fs.unlink('pictures/' + bookDeleted.Picture)
                 respuesta.json({
                 resultado: "successful",
-                mensaje: "book deleted",
+                mensaje: "Libro eliminado",
                 datos: bookDeleted
                 });
             }          
             } catch (error) {
             respuesta.json({
             resultado: "failed",
-            mensaje: "something went wrong",
+            mensaje: "Algo salió mal",
             datos: error
             });
             }

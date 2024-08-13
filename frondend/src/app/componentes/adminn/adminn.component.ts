@@ -104,13 +104,13 @@ export class AdminnComponent implements OnInit {
           this.books = response.datos;
           // this.setPage(1); 
         } else {
-          this.toastrService.error('An error occurred while fetching books');
-          console.error('Error in response:', response);
+          this.toastrService.error('Se produjo un error al obtener los libros');
+          console.error('Error en la respuesta:', response);
         }
       },
       error: (error: any) => {
-        console.error('Error occurred while fetching books:', error);
-        this.toastrService.error('An error occurred while fetching books');
+        console.error('Se produjo un error al obtener los libros:', error);
+        this.toastrService.error('Se produjo un error al obtener los libros');
       }
     });
   }
@@ -129,7 +129,7 @@ export class AdminnComponent implements OnInit {
         this.handleUpdate(result._id, result);
       }
     }).catch((error) => {
-      console.error('Modal dismissed with error:', error);
+      console.error('Modal descartado con error:', error);
     });
   }
 
@@ -141,12 +141,12 @@ export class AdminnComponent implements OnInit {
           this.toastrService.success(res.mensaje);
           this.fetchBooks(); 
         } else {
-          this.toastrService.error('An error occurred while updating the book');
+          this.toastrService.error('Se produjo un error al actualizar el libro.');
         }
       },
       error: (error: any) => {
-        console.error('Error occurred while updating the book:', error);
-        this.toastrService.error('An error occurred while updating the book');
+        console.error('Se produjo un error al actualizar el libro:', error);
+        this.toastrService.error('Se produjo un error al actualizar el libro.');
       }
     });
   }
@@ -159,12 +159,12 @@ export class AdminnComponent implements OnInit {
           this.toastrService.success(res.mensaje);
           this.fetchBooks(); 
         } else {
-          this.toastrService.error('An error occurred while deleting the book');
+          this.toastrService.error('Se produjo un error al eliminar el libro');
         }
       },
       error: (error: any) => {
-        console.error('Error occurred while deleting the book:', error);
-        this.toastrService.error('An error occurred while deleting the book');
+        console.error('Se produjo un error al eliminar el libro:', error);
+        this.toastrService.error('Se produjo un error al eliminar el libro.');
       }
     });
   }

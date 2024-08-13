@@ -37,4 +37,30 @@
   .navbar-toggler.bg-gradient {
     background-color: rgb(163, 111, 48);
   }
-  
+  .boton-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #070907;
+    color: rgb(255, 255, 255);
+    border-radius: 70%;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 50px;
+    box-shadow: 2px 2px 3px #f5ab00;
+    z-index: 999;
+  }
+  #cart_menu_num {
+    position: absolute;
+    top: 0;
+    left: 55%;
+    background: rgb(252, 190, 2);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+   
+    color: rgb(18, 16, 16);
+    padding: 2px;
+  }
+

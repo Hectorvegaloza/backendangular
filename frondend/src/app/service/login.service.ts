@@ -23,11 +23,6 @@ API_URL='http://localhost:3000/inicio-sesion';
   }
 
   validateToken(token:string){
-    this.toastrService.success('Inicio de sesión exitoso', '¡Bienvenido!', {
-      positionClass: 'toast-top-center',
-      timeOut: 2000,
-      closeButton: true
-    });
     return this.httpClient.get(`${this.API_URL}/${token}`)}
 
   isLogin() {
@@ -35,11 +30,6 @@ API_URL='http://localhost:3000/inicio-sesion';
       return true;
 
     } else {
-/*       this.toastrService.error('Credenciales incorrectas', 'Error de inicio de sesión', {
-        positionClass: 'toast-top-center',
-        timeOut: 3000,
-        closeButton: true
-      }); */
       return false;
       
     }
@@ -48,11 +38,11 @@ API_URL='http://localhost:3000/inicio-sesion';
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/']);
-   this.toastrService.info('Su sesión ha sido cerrada', '¡Hasta pronto!', {
+    this.toastrService.warning('Haz cerrado Sesión','Hasta pronto', {
       positionClass: 'toast-top-center',
-      timeOut: 1000, 
+      timeOut: 2000, 
       closeButton: true 
-    });
+  }); 
   }
 }
 

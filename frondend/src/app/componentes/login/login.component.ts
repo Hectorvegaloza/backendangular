@@ -9,6 +9,7 @@ import { Credential } from '../../interfaces/credential';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { LoginService } from '../../service/login.service';
+import { ToastrService } from 'ngx-toastr';
 
 const jwtHelperService = new JwtHelperService();
 
@@ -22,11 +23,12 @@ const jwtHelperService = new JwtHelperService();
 export class LoginComponent {
   router = inject(Router);
   loginService: LoginService = inject(LoginService);
-
+  toastrService = inject(ToastrService);
   credentialsForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
+
   handleSubmit() {
     
     if (this.credentialsForm.valid) {   /* valida que los datos enviados sean correctos  */
@@ -43,17 +45,52 @@ export class LoginComponent {
           //console.log('response: ', response);
           //const decoded = jwtHelperService.decodeToken(response.datos);
           //console.log('decoded: ', decoded);
-          localStorage.setItem('token', response.datos);
-          if(username==="administrador@gmail.com"&& password==="Clave123@" ){
+          if (response.resultado === 'bien') {
+            localStorage.setItem('token', response.datos);
 
-          this.router.navigateByUrl('/book-form');}
-          else{
-            this.router.navigateByUrl('/shop');
+            if(username==="administrador@gmail.com"&& password==="Clave123@" ){
+              this.router.navigateByUrl('/book-form');}
+            else{
+                     this.router.navigateByUrl('/shop');
+                     this.toastrService.success('Bienvenido!','', {
+                      positionClass: 'toast-top-center',
+                      timeOut: 2000, 
+                      closeButton: true   }); 
+    
+            }         
+
+          
+        
+        } else {
+            this.toastrService.warning('Datos erroneos!','Revisa tus credenciales', {
+              positionClass: 'toast-top-center',
+              timeOut: 2000, 
+              closeButton: true 
+          }); 
+
           }
-        }); /* imprime el tipo de dato y el valor */
+        });
       }
     } else {
-      console.log('Error: formulario invalido');
+      this.toastrService.info('Todos los campos son obligatorios');
+    }
+  }
+  ngOnInit (){
+    localStorage.removeItem("FINAL")
+  }
+}
+/* 
+          
+         
+        });
+      }
+    } else {
+      this.toastrService.info('Credenciales invalidas', '¡Revise los datos de ingreso!', {
+        positionClass: 'toast-top-center',
+        timeOut: 1000, 
+        closeButton: true 
+    }); 
     }
   }
 }
+ */

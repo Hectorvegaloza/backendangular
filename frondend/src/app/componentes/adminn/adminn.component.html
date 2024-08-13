@@ -2,7 +2,7 @@
     <div class="container">
       <h1 class="title"> Libros creados </h1>
       <div class="d-grid gap-2 col-6 mx-auto">
-      <button class="btn btn-dark" type="button" id="Formbutton" (click)="handleClickCreateBooks()">Crear más libros</button>
+      <button class="btn bba" type="button" id="Formbutton" (click)="handleClickCreateBooks()">Crear más libros</button>
       </div> <br>
       <div *ngIf="books.length > 0; else noBooks">
         <div class="row d-flex justify-content-center">
@@ -10,7 +10,7 @@
             <div class="card" style="width: 100%;">
               <div id="pictures">
                 <img
-                  src=" http://localhost:3000/pictures/{{ book.Picture }}"
+                  src="http://localhost:3000/pictures/{{ book.Picture }}"
                   class="card-img-top"
                   alt="imagen de libro {{ book.Title }}"
                   style="width: 300px; height: 300px;"

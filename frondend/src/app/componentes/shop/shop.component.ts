@@ -4,7 +4,10 @@ import { CommonModule } from '@angular/common';
 import { LoginService } from '../../service/login.service';
 import { AdminService } from '../../service/admin.service';
 import { Router } from '@angular/router';
- 
+
+import { Store } from '@ngrx/store';
+import { addProduct } from '../../ngrxcarrito/cart.accions';
+import { productmodel } from '../../interfaces/productmodel';
 
 @Component({
   selector: 'app-shop',
@@ -18,11 +21,13 @@ export class ShopComponent implements OnInit {
   books: any[] = [];
   p: number = 1;
   nombre: string = '';
-
+  
   constructor(
     private loginService: LoginService,
     private adminService: AdminService,
-    private router: Router
+    private router: Router,
+    private store:Store
+
   ) {}
 
   ngOnInit() {
@@ -43,8 +48,13 @@ export class ShopComponent implements OnInit {
   }
 
   redirectToPayment() {
-    this.router.navigate(['/payment']);
+
+    /* this.router.navigate(['/payment']); *//* aqui se debe de poner */
   }
+
+addtocart(product: productmodel){
+  this.store.dispatch(addProduct({product}))
+}
 
   fetchBooks() {
     this.adminService.getBooks().subscribe({

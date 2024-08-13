@@ -28,7 +28,7 @@ export class LoginComponent {
     password: new FormControl('', Validators.required),
   });
   handleSubmit() {
-    console.log("estoy trabajando");
+    
     if (this.credentialsForm.valid) {   /* valida que los datos enviados sean correctos  */
       const username = this.credentialsForm.value.username;
       const password = this.credentialsForm.value.password;

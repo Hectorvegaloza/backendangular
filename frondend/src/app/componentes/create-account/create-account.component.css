@@ -16,6 +16,14 @@ div#milogin {
     font-family: "Madimi One", sans-serif;
     font-style: italic;
   }
+  h6 {
+
+    color: rgb(22, 19, 19);
+    justify-content: center;
+    margin-bottom: 10px;
+    font-family: "Madimi One", sans-serif;
+    font-style: italic;
+  }
 
   .title {
     font-family: "Rubik Doodle Shadow", system-ui;
